@@ -3,18 +3,22 @@
     <router-link :to="'/'">Movie</router-link>
     <h1>{{ msg }}</h1>
     Clicked: {{ $store.state.api.time }} times, count is {{ even }}.
+    <br>
+    data: {{ $store.state.api.data }}
     <button @click="add">+</button>
   </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
+
   export default {
     computed: mapGetters([
       'even'
     ]),
     methods: mapActions([
-      'add'
+      'add',
+      'loadData'
     ]),
     data () {
       return {
@@ -22,7 +26,7 @@
       }
     },
     mounted () {
-      console.log('mounted')
+      this.$store.dispatch('loadData')
     },
     destroyed () {
       this.$store.state.api.time = 0
