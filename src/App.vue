@@ -6,12 +6,14 @@
 
 <script>
 
-  import Movies from './views/movie/movies.vue'
+  import Movies from './views/Movies.vue'
+  import Home from './views/Home.vue'
 
   export default {
     name: 'app',
     components: {
-      Movies
+      Movies,
+      Home
     }
   }
 </script>

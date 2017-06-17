@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       component: App.components.Movies,
       name: 'index'
+    },
+    {
+      path: '/home',
+      component: App.components.Home,
+      name: 'home'
     }
   ]
 })

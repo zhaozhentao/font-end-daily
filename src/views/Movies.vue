@@ -1,6 +1,7 @@
 <template>
   <div class="movie">
-    Clicked: {{ $store.state.count }} times, count is {{ evenOrOdd }}.
+    <router-link :to="'home'">Home</router-link>
+    Clicked: {{ $store.state.count.count }} times, count is {{ evenOrOdd }}.
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
     <button @click="incrementIfOdd">Increment if odd</button>
