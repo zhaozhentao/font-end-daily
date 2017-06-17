@@ -1,18 +1,27 @@
 <template>
   <div class="movie">
-    <h1>{{ msg }}</h1>
+    Clicked: {{ $store.state.count }} times, count is {{ evenOrOdd }}.
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <button @click="incrementIfOdd">Increment if odd</button>
+    <button @click="incrementAsync">Increment async</button>
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
   export default {
-    name: 'movie',
-    data () {
-      return {
-        msg: 'this is movie'
-      }
-    }
+    computed: mapGetters([
+      'evenOrOdd'
+    ]),
+    methods: mapActions([
+      'increment',
+      'decrement',
+      'incrementIfOdd',
+      'incrementAsync'
+    ])
   }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
