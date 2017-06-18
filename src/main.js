@@ -8,6 +8,8 @@ import store from './store/store'
 
 Vue.config.productionTip = false
 
+axios.defaults.baseURL = 'http://localhost:8080'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

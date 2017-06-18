@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
           <a class="btn btn-lg btn-default btn-block" id="login-required-submit"
-             href="">
+             href="http://localhost:8080/api/my">
             <i class="fa fa-github-alt"></i> Github 登录
           </a>
         </div>
@@ -17,7 +17,11 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    mounted () {
+      console.log(this.$store)
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

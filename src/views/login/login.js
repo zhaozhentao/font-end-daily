@@ -19,7 +19,7 @@ const actions = {
     commit('add')
   },
   loadData ({commit}) {
-    axios.get('http://localhost:8080/api/my')
+    axios.get('/api/my')
       .then(function (response) {
         commit('loaded', response)
       })
