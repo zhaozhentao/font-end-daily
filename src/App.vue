@@ -8,7 +8,7 @@
 <script>
   import Movies from './views/Movies.vue'
   import Home from './views/Home.vue'
-  import DailyNav from './components/Nav'
+  import DailyNav from './components/navbar'
 
   export default {
     name: 'app',

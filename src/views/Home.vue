@@ -1,11 +1,5 @@
 <template>
   <div class="home">
-    <router-link :to="'/'">Movie</router-link>
-    <h1>{{ msg }}</h1>
-    Clicked: {{ $store.state.api.time }} times, count is {{ even }}.
-    <br>
-    data: {{ $store.state.api.data }}
-    <button @click="add">+</button>
   </div>
 </template>
 

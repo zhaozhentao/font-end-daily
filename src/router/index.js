@@ -8,12 +8,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: App.components.Movies,
+      component: App.components.Home,
       name: 'index'
     },
     {
       path: '/home',
-      component: App.components.Home,
+      component: App.components.Movies,
       name: 'home'
     }
   ]
