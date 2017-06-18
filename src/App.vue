@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <daily-nav></daily-nav>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
   import Movies from './views/Movies.vue'
-  import Home from './views/Home.vue'
+  import Home from './views/home.vue'
   import DailyNav from './components/navbar'
 
   export default {
