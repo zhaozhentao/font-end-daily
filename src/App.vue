@@ -1,25 +1,26 @@
 <template>
-  <div id="app">
-    <daily-nav></daily-nav>
-    <router-view></router-view>
+  <div id="app" style="overflow-x: hidden">
+    <nav-bar></nav-bar>
+    <div class="container main-container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-  import Movies from './views/Movies.vue'
-  import Home from './views/home.vue'
-  import DailyNav from './components/navbar'
+  import Login from './views/login/login.vue'
+  import Home from './views/home/home.vue'
+  import NavBar from './components/navbar'
 
   export default {
     name: 'app',
     components: {
-      DailyNav,
-      Movies,
+      NavBar,
+      Login,
       Home
     }
   }
 </script>
-
 <style>
   html::after {
     background-attachment: fixed;
@@ -39,10 +40,23 @@
     height: 100%;
     font-size: 14px;
     color: #525252;
-    font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+    font-family: NotoSansHans-Regular, AvenirNext-Regular, arial, Hiragino Sans GB, "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
   }
 
   html, body {
     background: transparent;
+  }
+
+  /* 手机页面 */
+  @media (max-width: 767px) {
+    .container.main-container {
+      margin-top: 15px;
+    }
+  }
+
+  @media only screen and (max-device-width: 480px) and (min-device-width: 120px) {
+    .container {
+      padding: 0 7px;
+    }
   }
 </style>

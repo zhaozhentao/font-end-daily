@@ -12,9 +12,9 @@ export default new Router({
       name: 'index'
     },
     {
-      path: '/home',
-      component: App.components.Movies,
-      name: 'home'
+      path: '/auth/login',
+      component: App.components.Login,
+      name: 'login'
     }
   ]
 })

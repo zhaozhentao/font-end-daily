@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import count from './modules/count'
-import api from './modules/api'
+import count from '../views/home/home'
+import api from '../views/login/login'
 
 Vue.use(Vuex)
 

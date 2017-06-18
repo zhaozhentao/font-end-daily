@@ -3,9 +3,9 @@
     <div class="container nav-container">
       <div class="container-fluid">
         <div :class="{'mobile-navbar-header' : !isLogin}" class="navbar-header">
-          <a class="navbar-brand" style="color: #f36c60; font-weight: bold; font-size: 22px;">
+          <router-link :to="'/'" class="navbar-brand" style="color: #f36c60; font-weight: bold; font-size: 22px;">
             Daily
-          </a>
+          </router-link>
 
           <button
             v-if="isLogin" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -36,10 +36,10 @@
               </li>
             </template>
             <template v-else>
-              <a class="btn btn-primary login-btn">
+              <router-link :to="'/auth/login'" class="btn btn-primary login-btn">
                 <i class="fa fa-user"></i>
                 登录
-              </a>
+              </router-link>
             </template>
           </ul>
         </div>
@@ -57,7 +57,7 @@
     },
     data () {
       return {
-        isLogin: true,
+        isLogin: false,
         name: '涛'
       }
     }
