@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
           <a class="btn btn-lg btn-default btn-block" id="login-required-submit"
-             href="http://localhost:8080/api/my">
+             href="http://localhost:8080/auth/oauth">
             <i class="fa fa-github-alt"></i> Github 登录
           </a>
         </div>

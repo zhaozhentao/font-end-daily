@@ -10,6 +10,7 @@
 <script>
   import Login from './views/login/login.vue'
   import Home from './views/home/home.vue'
+  import Signup from './views/signup/signup.vue'
   import NavBar from './components/navbar'
 
   export default {
@@ -17,7 +18,8 @@
     components: {
       NavBar,
       Login,
-      Home
+      Home,
+      Signup
     }
   }
 </script>
@@ -58,5 +60,15 @@
     .container {
       padding: 0 7px;
     }
+  }
+
+  .panel .panel-heading {
+    border-bottom: 1px solid #eeeeee;
+    background-color: #fff;
+  }
+
+  .panel .panel-heading h3 {
+    color: #999;
+    font-size: 14px;
   }
 </style>
