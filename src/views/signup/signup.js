@@ -1,34 +1,36 @@
 import axios from 'axios'
 
 const state = {
-  time: 0,
   data: null
 }
 
 const mutations = {
-  add (state) {
-    state.time++
-  },
-  loaded (state, data) {
+  signup (state, data) {
     state.data = data
   }
 }
 
 const actions = {
-  add ({commit}) {
-    commit('add')
-  },
-  loadData ({commit}) {
-    axios.get('/api/my')
-      .then(function (response) {
-        commit('loaded', response)
+  signup (store, data) {
+    return new Promise((resolve, reject) => {
+      axios.post('/api/signup', {
+        name: data.name,
+        github_name: data.github_name,
+        email: data.email,
+        password: data.password
       })
+        .then(function (response) {
+          store.commit('signup', response)
+          resolve(response)
+        })
+        .catch(function () {
+          resolve()
+        })
+    })
   }
 }
 
-const getters = {
-  even: state => state.time % 2 === 0 ? 'even' : 'odd'
-}
+const getters = {}
 
 export default {
   state,
