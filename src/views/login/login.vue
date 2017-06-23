@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
           <a class="btn btn-lg btn-default btn-block" id="login-required-submit"
-             href="http://localhost:8080/auth/oauth">
+             :href="this.baseUrl + '/auth/oauth'">
             <i class="fa fa-github-alt"></i> Github 登录
           </a>
         </div>
@@ -19,7 +19,7 @@
 <script>
   export default {
     mounted () {
-      console.log(this.$store)
+      console.log(this.baseUrl)
     }
   }
 </script>

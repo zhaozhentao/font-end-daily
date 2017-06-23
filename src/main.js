@@ -16,6 +16,14 @@ Vue.use(VeeValidate, {
 
 axios.defaults.baseURL = process.env.baseUrl
 
+Vue.mixin({
+  data: function () {
+    return {
+      baseUrl: process.env.baseUrl
+    }
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
