@@ -14,7 +14,7 @@ Vue.use(VeeValidate, {
   locale: 'zh_CN'
 })
 
-axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = process.env.baseUrl
 
 /* eslint-disable no-new */
 new Vue({

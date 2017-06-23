@@ -20,11 +20,10 @@ const actions = {
         password: data.password
       })
         .then(function (response) {
-          store.commit('signup', response)
           resolve(response)
         })
         .catch(function () {
-          resolve()
+          reject()
         })
     })
   }

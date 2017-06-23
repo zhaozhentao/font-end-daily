@@ -60,13 +60,13 @@
     methods: {
       validateForm (scope) {
         this.$validator.validateAll(scope).then(result => {
-          if (result) {
-            this.$store.dispatch('signup', this.$data)
-              .then((data) => {
-                console.log(this.$store.state.signup.data.data)
-                this.$router.replace('/')
-              })
+          if (!result) {
+            return
           }
+          this.$store.dispatch('signup', this.$data)
+            .then((data) => {
+              this.$router.replace('/')
+            })
         })
       }
     },
