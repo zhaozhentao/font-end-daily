@@ -56,7 +56,7 @@
       NavItems
     },
     mounted () {
-//      this.$store.dispatch('getUserInfo')
+      this.$store.dispatch('getUserInfo')
     },
     data () {
       return {
