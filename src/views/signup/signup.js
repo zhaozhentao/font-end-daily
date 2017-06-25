@@ -17,6 +17,7 @@ const actions = {
         name: data.name,
         github_id: data.github_id,
         github_name: data.github_name,
+        image_url: data.image_url,
         email: data.email,
         password: data.password
       })

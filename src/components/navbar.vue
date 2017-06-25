@@ -2,13 +2,13 @@
   <nav class="navbar navbar-default">
     <div class="container nav-container">
       <div class="container-fluid">
-        <div :class="{'mobile-navbar-header' : !isLogin}" class="navbar-header">
+        <div :class="{'mobile-navbar-header' : !$store.state.login.user}" class="navbar-header">
           <router-link :to="'/'" class="navbar-brand" style="color: #f36c60; font-weight: bold; font-size: 22px;">
             Daily
           </router-link>
 
           <button
-            v-if="isLogin" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            v-if="$store.state.login.user" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
             data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -17,14 +17,14 @@
           </button>
         </div>
 
-        <div v-if="isLogin" class="collapse navbar-collapse nav-user-menu nav-mobile-menu"
+        <div v-if="$store.state.login.user" class="collapse navbar-collapse nav-user-menu nav-mobile-menu"
              id="bs-example-navbar-collapse-1">
           <nav-items class="nav navbar-nav"></nav-items>
         </div>
 
-        <div class="navbar-right" :class="{ 'nav-user-menu-desktop' : isLogin }">
+        <div class="navbar-right" :class="{ 'nav-user-menu-desktop' : $store.state.login.user }">
           <ul class="nav navbar-nav github-login nav-right-item">
-            <template v-if="isLogin">
+            <template v-if="$store.state.login.user">
               <li>
                 <a href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                    id="dLabel">
@@ -55,9 +55,11 @@
     components: {
       NavItems
     },
+    mounted () {
+      this.$store.dispatch('getUserInfo')
+    },
     data () {
       return {
-        isLogin: false,
         name: '涛'
       }
     }

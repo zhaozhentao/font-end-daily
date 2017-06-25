@@ -2,15 +2,15 @@ import axios from 'axios'
 
 const state = {
   time: 0,
-  data: null
+  user: null
 }
 
 const mutations = {
   add (state) {
     state.time++
   },
-  loaded (state, data) {
-    state.data = data
+  user (state, data) {
+    state.user = data
   }
 }
 
@@ -18,10 +18,10 @@ const actions = {
   add ({commit}) {
     commit('add')
   },
-  loadData ({commit}) {
-    axios.get('/api/my')
+  getUserInfo ({commit}) {
+    axios.get('/api/user')
       .then(function (response) {
-        commit('loaded', response)
+        commit('user', response)
       })
   }
 }

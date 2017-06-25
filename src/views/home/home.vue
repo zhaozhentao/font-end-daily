@@ -19,11 +19,8 @@
         msg: 'welcome home'
       }
     },
-    mounted () {
-      this.$store.dispatch('loadData')
-    },
     destroyed () {
-      this.$store.state.api.time = 0
+      this.$store.state.login.time = 0
     }
   }
 </script>
