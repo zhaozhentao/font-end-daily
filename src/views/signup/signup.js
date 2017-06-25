@@ -15,6 +15,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios.post('/api/signup', {
         name: data.name,
+        github_id: data.github_id,
         github_name: data.github_name,
         email: data.email,
         password: data.password

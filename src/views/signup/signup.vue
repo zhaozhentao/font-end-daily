@@ -76,6 +76,7 @@
     data () {
       return {
         name: this.$route.query.name,
+        github_id: this.$route.query.github_id,
         github_name: this.$route.query.github_name,
         email: this.$route.query.email,
         password: this.$route.query.password,
