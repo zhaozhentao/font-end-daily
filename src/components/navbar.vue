@@ -28,8 +28,8 @@
               <li>
                 <a href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                    id="dLabel">
-                  <img src="" class="avatar-topnav">
-                  {{ name }}
+                  <img :src="$store.state.login.user.image_url" class="avatar-topnav">
+                  {{ $store.state.login.user.name  }}
                   <span class="caret"></span>
                 </a>
                 <nav-items class="dropdown-menu" aria-labelledby="dropdownMenu1"></nav-items>
@@ -60,7 +60,6 @@
     },
     data () {
       return {
-        name: '涛'
       }
     }
   }
@@ -81,6 +80,15 @@
     .container.nav-container {
       padding: 0;
     }
+  }
+
+  .avatar-topnav {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-top: -5px;
+    border: 1px solid white;
+    border-radius: 50%;
   }
 
   /* 桌面版 */

@@ -10,7 +10,7 @@ const mutations = {
     state.time++
   },
   user (state, data) {
-    state.user = data
+    state.user = data.data
   }
 }
 
