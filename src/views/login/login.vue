@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
           <a class="btn btn-lg btn-default btn-block" id="login-required-submit"
-             :href="this.baseUrl + '/auth/oauth'">
+             :href="'/api/auth/oauth'">
             <i class="fa fa-github-alt"></i> Github 登录
           </a>
         </div>

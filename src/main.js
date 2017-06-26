@@ -16,7 +16,7 @@ Vue.use(VeeValidate, {
 
 axios.defaults.baseURL = process.env.baseUrl
 document.cookie.split(';').forEach(function (value, index, array) {
-  if (value.split('=')[0] === 'token') {
+  if (value.split('=')[0] === 'token' || value.split('=')[0] === ' token') {
     axios.defaults.headers.common['Authorization'] = 'Bearer' + value.split('=')[1]
   }
 })
