@@ -14,7 +14,6 @@ Vue.use(VeeValidate, {
   locale: 'zh_CN'
 })
 
-axios.defaults.baseURL = process.env.baseUrl
 document.cookie.split(';').forEach(function (value, index, array) {
   if (value.split('=')[0] === 'token' || value.split('=')[0] === ' token') {
     axios.defaults.headers.common['Authorization'] = 'Bearer' + value.split('=')[1]
@@ -24,7 +23,7 @@ document.cookie.split(';').forEach(function (value, index, array) {
 Vue.mixin({
   data: function () {
     return {
-      baseUrl: process.env.baseUrl
+      global_data: ''
     }
   }
 })
