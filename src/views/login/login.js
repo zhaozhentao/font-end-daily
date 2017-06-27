@@ -19,6 +19,9 @@ const actions = {
     commit('add')
   },
   getUserInfo ({commit}) {
+    if (!axios.defaults.headers.common['Authorization']) {
+      return
+    }
     axios.get('/api/user')
       .then(function (response) {
         commit('user', response)

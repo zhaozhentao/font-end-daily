@@ -56,6 +56,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     methods: {
       validateForm (scope) {
@@ -65,6 +67,9 @@
           }
           this.$store.dispatch('signup', this.$data)
             .then((data) => {
+              document.cookie = 'token=' + data.data
+              axios.defaults.headers.common['Authorization'] = 'Bearer' + data.data
+              this.$store.dispatch('getUserInfo')
               this.$router.replace('/')
             })
         })
