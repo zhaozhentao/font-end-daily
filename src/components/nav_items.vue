@@ -11,7 +11,7 @@
       </a>
     </li>
     <li>
-      <a href=""
+      <a @click="logout()"
          data-lang-loginout="你确定要退出吗">
         <i class="fa fa-sign-out text-md nav-menu-icon"></i> 退出
       </a>
@@ -20,7 +20,20 @@
 </template>
 
 <script>
-  export default {}
+  function delCookie (name) {
+    var exp = new Date()
+    exp.setTime(exp.getTime() - 1)
+    document.cookie = name + '=' + ';expires=' + exp.toGMTString()
+  }
+
+  export default {
+    methods: {
+      logout: function () {
+        delCookie('token')
+        this.$store.state.login.user = null
+      }
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
