@@ -1,14 +1,14 @@
 <template>
   <ul>
     <li>
-      <a href="">
+      <a>
         <i class="fa fa-user-circle text-md nav-menu-icon"></i> 个人中心
       </a>
     </li>
     <li>
-      <a href="">
+      <router-link :to="'/blog/create'">
         <i class="fa fa-edit text-md nav-menu-icon"></i> 日志
-      </a>
+      </router-link>
     </li>
     <li>
       <a @click="logout()"

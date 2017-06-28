@@ -21,6 +21,11 @@ export default new Router({
       path: '/signup',
       component: App.components.Signup,
       name: 'signup'
+    },
+    {
+      path: '/blog/create',
+      component: App.components.Blog,
+      name: 'blog_create'
     }
   ]
 })

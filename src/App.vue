@@ -12,6 +12,7 @@
   import Home from './views/home/home.vue'
   import Signup from './views/signup/signup.vue'
   import NavBar from './components/navbar'
+  import Blog from './views/blog/blog.vue'
 
   export default {
     name: 'app',
@@ -19,7 +20,8 @@
       NavBar,
       Login,
       Home,
-      Signup
+      Signup,
+      Blog
     }
   }
 </script>
