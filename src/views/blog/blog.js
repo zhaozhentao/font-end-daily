@@ -1,4 +1,5 @@
 import SimpleMDE from '../../../public/assets/js/editor'
+import axios from 'axios'
 
 const state = {
   count: 0
@@ -19,10 +20,14 @@ const actions = {
       forceSync: true
     })
 
+    var token = axios.defaults.headers.common['Authorization']
+
     window.inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
-      uploadUrl: '',
+      uploadUrl: '/api/upload_image',
+      extraHeaders: {
+        'Authorization': token
+      },
       extraParams: {
-        '_token': ''
       },
       onFileUploadResponse: function (xhr) {
         var result = JSON.parse(xhr.responseText)
