@@ -12,6 +12,7 @@
   import Home from './views/home/home.vue'
   import Signup from './views/signup/signup.vue'
   import NavBar from './components/navbar'
+  import BlogCreate from './views/blog/blog_create.vue'
   import Blog from './views/blog/blog.vue'
 
   export default {
@@ -21,6 +22,7 @@
       Login,
       Home,
       Signup,
+      BlogCreate,
       Blog
     }
   }

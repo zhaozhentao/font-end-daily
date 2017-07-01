@@ -24,8 +24,13 @@ export default new Router({
     },
     {
       path: '/blog/create',
-      component: App.components.Blog,
+      component: App.components.BlogCreate,
       name: 'blog_create'
+    },
+    {
+      path: '/blog/:id',
+      component: App.components.Blog,
+      name: 'blog_detail'
     }
   ]
 })

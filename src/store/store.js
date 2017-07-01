@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import count from '../views/home/home'
 import login from '../views/login/login'
 import signup from '../views/signup/signup'
-import blog from '../views/blog/blog'
+import blog from '../views/blog/blog_create'
 
 Vue.use(Vuex)
 
