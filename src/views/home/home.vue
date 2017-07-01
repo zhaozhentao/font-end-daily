@@ -12,7 +12,9 @@
         <div class="panel-body">
           <ul class="home-content-item-container" style="margin-bottom: 0px;">
             <li class="home-content-item" v-for="blog in blogs">
-              <a href="" class="home-content-title">{{ blog.title }}</a>
+              <router-link :to="{ name: 'blog_detail', params: { id: blog.id }}" class="home-content-title">
+                {{ blog.title }}
+              </router-link>
               <small class="home-content-time">{{ blog.created_at | time }}</small>
             </li>
           </ul>
