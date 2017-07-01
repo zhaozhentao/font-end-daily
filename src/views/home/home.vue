@@ -11,7 +11,7 @@
         </div>
         <div class="panel-body">
           <ul class="home-content-item-container" style="margin-bottom: 0px;">
-            <li class="home-content-item" v-for="blog in blogs">
+            <li class="home-content-item" v-for="blog in $store.state.home.blogs">
               <router-link :to="{ name: 'blog_detail', params: { id: blog.id }}" class="home-content-title">
                 {{ blog.title }}
               </router-link>

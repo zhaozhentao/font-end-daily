@@ -1,14 +1,20 @@
 import axios from 'axios'
 
-const state = {}
+const state = {
+  blogs: null
+}
 
-const mutations = {}
+const mutations = {
+  blogs (state, data) {
+    state.blogs = data
+  }
+}
 
 const actions = {
   blogs (store, data) {
     return new Promise((resolve, reject) => {
       axios.get('/api/blogs', data).then(function (response) {
-        resolve(response.data)
+        store.commit('blogs', response.data)
       }).catch(function () {
         reject()
       })
