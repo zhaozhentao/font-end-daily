@@ -20,12 +20,6 @@
           <i class="fa fa-anchor"></i>
         </a>
 
-        <a data-method="delete" id="topic-delete-button" href="javascript:void(0);"
-           data-url="" data-content="删除"
-           class="admin  popover-with-html">
-          <i class="fa fa-trash-o"></i>
-        </a>
-
         <a @click="deleteBlog()" href="javascript:void(0);" data-content="删除" class="admin popover-with-html">
           <i class="fa fa-trash-o"></i>
         </a>
@@ -84,51 +78,19 @@
 <script>
   import swal from 'sweetalert'
   export default {
-    mounted () {
-      var $ = window.$
-      $('[data-method]')
-        .append(function () {
-          return '\n' +
-            "<form action='" + $(this).attr('data-url') + "' method='POST' style='display:none'>\n" +
-            "   <input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n" +
-            "   <input type='hidden' name='_token' value='" + 123 + "'>\n" +
-            '</form>\n'
-        })
-        .attr('style', 'cursor:pointer;')
-        .click(function () {
-          var that = $(this)
-          if ($(this).attr('data-method') === 'delete') {
-            swal({
-              title: '',
-              text: '你确定要删除此内容吗？',
-              type: 'warning',
-              showCancelButton: true,
-              cancelButtonText: '取消',
-              confirmButtonText: '删除'
-            }, function () {
-              that.find('form').submit()
-            })
-          }
-          if ($(this).attr('data-btn') === 'transform-button') {
-            swal({
-              title: '',
-              text: '确定要把此话题转换为专栏文章？',
-              type: 'warning',
-              showCancelButton: true,
-              cancelButtonText: '取消',
-              confirmButtonText: '转为文章'
-            }, function () {
-              that.find('form').submit()
-            })
-          }
-          if ($(this).attr('data-method') === 'post') {
-            $(this).find('form').submit()
-          }
-        })
-    },
+    mounted () {},
     methods: {
       deleteBlog () {
-        this.$store.dispatch('deleteBlog', this.$route.params.id)
+        swal({
+          title: '',
+          text: '你确定要删除此内容吗？',
+          type: 'warning',
+          showCancelButton: true,
+          cancelButtonText: '取消',
+          confirmButtonText: '删除'
+        }, function () {
+          this.$store.dispatch('deleteBlog', this.$route.params.id)
+        })
       }
     }
   }
