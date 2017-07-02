@@ -1,7 +1,8 @@
 <template>
   <div id="app" style="overflow-x: hidden">
-    <nav-bar></nav-bar>
-    <div class="container main-container">
+    <nav-bar style="margin-bottom: 0px;"></nav-bar>
+    <md-progress v-show="$store.state.status.loading" class="md-warn" md-indeterminate style="float: left"/>
+    <div class="container main-container" style="margin-top: 20px;">
       <router-view></router-view>
     </div>
   </div>
