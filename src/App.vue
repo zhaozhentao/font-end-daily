@@ -42,7 +42,7 @@
     bottom: 0;
     top: 0;
     position: fixed;
-    background: url(./assets/andy.jpeg);
+    background: url(http://osbzc9j9p.bkt.clouddn.com/andy.jpeg);
     background-size: cover;
   }
 
