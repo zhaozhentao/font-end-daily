@@ -6,12 +6,12 @@
           Daily
         </router-link>
 
-        <ul class="nav navbar-nav github-login nav-right-item">
-          <div style="display: inline-block;">
+        <div class="navbar-right">
+          <ul class="nav navbar-nav github-login nav-right-item">
             <template v-if="$store.state.login.user">
               <li>
-                <a href="#" type="button" class="nav-user-menu-desktop" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false" id="dLabel">
+                <a href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   class="nav-user-menu-desktop" id="dLabel">
                   <img :src="$store.state.login.user.image_url" class="avatar-topnav">
                   {{ $store.state.login.user.name }}
                   <span class="caret"></span>
@@ -35,8 +35,8 @@
                 登录
               </router-link>
             </template>
-          </div>
-        </ul>
+          </ul>
+        </div>
       </div>
 
       <div v-if="$store.state.login.user" class="collapse navbar-collapse nav-user-menu nav-mobile-menu"
