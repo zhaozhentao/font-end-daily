@@ -5,6 +5,9 @@
     <div class="container main-container" style="margin-top: 20px;">
       <router-view></router-view>
     </div>
+    <md-snackbar :md-position="'bottom center'" ref="snackbar" :md-duration="2500">
+      <span>{{ toastMessage }}</span>
+    </md-snackbar>
   </div>
 </template>
 
@@ -15,6 +18,7 @@
   import NavBar from './components/navbar'
   import BlogCreate from './views/blog/blog_create.vue'
   import Blog from './views/blog/blog.vue'
+  import bus from './bus/eventbus'
 
   export default {
     name: 'app',
@@ -25,6 +29,18 @@
       Signup,
       BlogCreate,
       Blog
+    },
+    mounted () {
+      var that = this
+      bus.$on('toast', text => {
+        that.$data.toastMessage = text
+        this.$refs.snackbar.open()
+      })
+    },
+    data () {
+      return {
+        toastMessage: null
+      }
     }
   }
 </script>

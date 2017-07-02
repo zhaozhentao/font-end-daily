@@ -77,10 +77,13 @@
 
 <script>
   import swal from 'sweetalert'
+  import bus from '../../bus/eventbus'
+
   export default {
     mounted () {},
     methods: {
       deleteBlog () {
+        var that = this
         swal({
           title: '',
           text: '你确定要删除此内容吗？',
@@ -89,7 +92,10 @@
           cancelButtonText: '取消',
           confirmButtonText: '删除'
         }, function () {
-          this.$store.dispatch('deleteBlog', this.$route.params.id)
+          that.$store.dispatch('deleteBlog', that.$route.params.id).then((data) => {
+            that.$router.replace('/')
+            bus.$emit('toast', '删除成功')
+          })
         })
       }
     }
