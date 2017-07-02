@@ -2,37 +2,31 @@
   <nav class="navbar navbar-default">
     <div class="container nav-container">
       <div class="container-fluid">
-        <div :class="{'mobile-navbar-header' : !$store.state.login.user}" class="navbar-header">
-          <router-link :to="'/'" class="navbar-brand" style="color: #f36c60; font-weight: bold; font-size: 22px;">
-            Daily
-          </router-link>
+        <router-link :to="'/'" class="navbar-brand logo" style="color: #f36c60; font-weight: bold; font-size: 22px;">
+          Daily
+        </router-link>
 
-          <button
-            v-if="$store.state.login.user" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-
-        <div v-if="$store.state.login.user" class="collapse navbar-collapse nav-user-menu nav-mobile-menu"
-             id="bs-example-navbar-collapse-1">
-          <nav-items class="nav navbar-nav"></nav-items>
-        </div>
-
-        <div class="navbar-right" :class="{ 'nav-user-menu-desktop' : $store.state.login.user }">
-          <ul class="nav navbar-nav github-login nav-right-item">
+        <ul class="nav navbar-nav github-login nav-right-item">
+          <div style="display: inline-block;">
             <template v-if="$store.state.login.user">
               <li>
-                <a href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                   id="dLabel">
+                <a href="#" type="button" class="nav-user-menu-desktop" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false" id="dLabel">
                   <img :src="$store.state.login.user.image_url" class="avatar-topnav">
-                  {{ $store.state.login.user.name  }}
+                  {{ $store.state.login.user.name }}
                   <span class="caret"></span>
                 </a>
                 <nav-items class="dropdown-menu" aria-labelledby="dropdownMenu1"></nav-items>
+
+                <button
+                  v-if="$store.state.login.user" type="button" class="navbar-toggle collapsed toggle"
+                  data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
               </li>
             </template>
             <template v-else>
@@ -41,8 +35,13 @@
                 登录
               </router-link>
             </template>
-          </ul>
-        </div>
+          </div>
+        </ul>
+      </div>
+
+      <div v-if="$store.state.login.user" class="collapse navbar-collapse nav-user-menu nav-mobile-menu"
+           id="bs-example-navbar-collapse-1">
+        <nav-items class="nav navbar-nav"></nav-items>
       </div>
     </div>
   </nav>
@@ -59,8 +58,7 @@
       this.$store.dispatch('getUserInfo')
     },
     data () {
-      return {
-      }
+      return {}
     }
   }
 </script>
@@ -69,17 +67,23 @@
 <style scoped>
   /* 手机版 */
   @media only screen and (max-device-width: 480px) and (min-device-width: 120px) {
-    .mobile-navbar-header {
-      float: left;
-    }
-
     .nav-user-menu-desktop {
       display: none !important;
+    }
+
+    .nav-user-menu.nav-mobile-menu {
+      padding-left: 15px;
+      margin-left: 0px;
     }
 
     .container.nav-container {
       padding: 0;
     }
+  }
+
+  .logo {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .avatar-topnav {
@@ -125,5 +129,9 @@
   .nav-right-item {
     float: right;
     margin: 0px;
+  }
+
+  .toggle {
+    margin-right: 0px;
   }
 </style>

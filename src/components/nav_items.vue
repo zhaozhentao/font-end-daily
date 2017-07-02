@@ -1,16 +1,16 @@
 <template>
-  <ul>
-    <li>
+  <ul style="padding-top: 0px; padding-bottom: 0px;">
+    <li class="menu-item">
       <a>
         <i class="fa fa-user-circle text-md nav-menu-icon"></i> 个人中心
       </a>
     </li>
-    <li>
+    <li class="menu-item">
       <router-link :to="'/blog/create'">
         <i class="fa fa-edit text-md nav-menu-icon"></i> 日志
       </router-link>
     </li>
-    <li>
+    <li class="menu-item">
       <a @click="logout()"
          data-lang-loginout="你确定要退出吗">
         <i class="fa fa-sign-out text-md nav-menu-icon"></i> 退出
@@ -44,9 +44,9 @@
     line-height: 2.3;
   }
 
-  .dropdown-menu {
-    background-color: #fff;
-    color: inherit;
-    padding: 0px;
+  @media only screen and (min-width: 768px) {
+    .menu-item {
+      margin-top: 0px;
+    }
   }
 </style>

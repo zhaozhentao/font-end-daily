@@ -27,7 +27,10 @@
     }
   }
 </script>
+
 <style>
+  @import "../node_modules/vue-material/dist/vue-material.css";
+
   html::after {
     background-attachment: fixed;
     content: '';
@@ -74,5 +77,9 @@
   .panel .panel-heading h3 {
     color: #999;
     font-size: 14px;
+  }
+
+  a {
+    text-decoration: none !important;
   }
 </style>

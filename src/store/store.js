@@ -6,11 +6,13 @@ import signup from '../views/signup/signup'
 import blogCreate from '../views/blog/blog_create'
 import blog from '../views/blog/blog'
 import blogOperate from '../components/blog_operate/blog_operate'
+import status from './status'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
+    status,
     home,
     login,
     signup,

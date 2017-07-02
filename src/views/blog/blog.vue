@@ -63,12 +63,14 @@
       blogOperate
     },
     beforeRouteEnter (to, from, next) {
+      store.dispatch('loading')
       store.dispatch('getBlog', to.params.id).then((data) => {
         next(vm => {
           vm.title = data.title
           vm.body = data.body
           vm.is_excellent = data.is_excellent
           vm.order = data.order
+          store.dispatch('finish')
         })
       })
     },

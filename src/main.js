@@ -7,9 +7,11 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 import './message/zh_CN'
+var VueMaterial = require('vue-material')
 
 Vue.config.productionTip = false
 
+Vue.use(VueMaterial)
 Vue.use(VeeValidate, {
   locale: 'zh_CN'
 })
@@ -17,14 +19,6 @@ Vue.use(VeeValidate, {
 document.cookie.split(';').forEach(function (value, index, array) {
   if (value.split('=')[0] === 'token' || value.split('=')[0] === ' token') {
     axios.defaults.headers.common['Authorization'] = 'Bearer' + value.split('=')[1]
-  }
-})
-
-Vue.mixin({
-  data: function () {
-    return {
-      global_data: ''
-    }
   }
 })
 
