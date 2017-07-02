@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2 topics-show main-col">
     <div class="topic panel panel-default">
       <div class="infos panel-heading">
-        <h1 class="panel-title blog-title">{{ $data.title }}</h1>
+        <h1 class="panel-title blog-title">{{ title }}</h1>
       </div>
 
       <div class="content-body entry-content panel-body">
@@ -20,13 +20,13 @@
           </div>
 
           <div data-lang-excellent="lkjsdf" data-lang-wiki="lkjsdf" class="ribbon-container">
-            <div v-if="$data.is_excellent == 'yes'" class="ribbon">
+            <div v-if="is_excellent == 'yes'" class="ribbon">
               <div class="ribbon-excellent">
                 <i class="fa fa-trophy"></i> 精华
               </div>
             </div>
 
-            <div v-if="$data.order == -1" class="ribbon">
+            <div v-if="order == -1" class="ribbon">
               <div class="ribbon-anchored">
                 <i class="fa fa-anchor"></i> 此贴已被下沉
               </div>
@@ -55,11 +55,22 @@
 <script>
   import blogOperate from '../../components/blog_operate/blog_operate.vue'
   import markdownBody from '../../components/markdown_body.vue'
+  import store from '../../store/store'
 
   export default {
     components: {
       markdownBody,
       blogOperate
+    },
+    beforeRouteEnter (to, from, next) {
+      store.dispatch('getBlog', to.params.id).then((data) => {
+        next(vm => {
+          vm.title = data.title
+          vm.body = data.body
+          vm.is_excellent = data.is_excellent
+          vm.order = data.order
+        })
+      })
     },
     mounted () {
       window.$('.popover-with-html').popover({
@@ -67,12 +78,6 @@
         trigger: 'hover',
         container: 'body',
         placement: 'auto top'
-      })
-      this.$store.dispatch('getBlog', this.$route.params.id).then((data) => {
-        this.$data.title = data.title
-        this.$data.body = data.body
-        this.$data.is_excellent = data.is_excellent
-        this.$data.order = data.order
       })
     },
     data () {
