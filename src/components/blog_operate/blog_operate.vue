@@ -20,12 +20,12 @@
           <i class="fa fa-anchor"></i>
         </a>
 
-        <a @click="deleteBlog()" href="javascript:void(0);" data-content="删除" class="admin popover-with-html">
+        <a @click="deleteBlog()" href="javascript:void(0);" class="admin">
           <i class="fa fa-trash-o"></i>
         </a>
 
         <router-link
-          :to="{ name: 'blog_edit', params: { id: $route.params.id }}" class="admin popover-with-html" data-content="编辑">
+          :to="{ name: 'blog_edit', params: { id: $route.params.id }}" class="admin">
           <i class="fa fa-pencil-square-o"></i>
         </router-link>
 

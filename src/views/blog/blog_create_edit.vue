@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-8 col-md-offset-2">
-    <form @submit.prevent="create()" accept-charset="UTF-8">
+    <form @submit.prevent="commit()" accept-charset="UTF-8">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="写一篇日志" name="title" required="required" v-model="title">
       </div>
@@ -24,6 +24,7 @@
     mounted () {
       if (this.$route.name === 'blog_edit') {
         this.$store.dispatch('getBlog', this.$route.params.id).then((data) => {
+          this.$data.id = data.id
           this.$data.body = data.body_original
           this.$refs.body.value = data.body_original
           this.$data.title = data.title
@@ -39,10 +40,24 @@
         this.$store.dispatch('createBlog', this.$data).then((data) => {
           this.$router.replace({name: 'blog_detail', params: {id: data.id}})
         })
+      },
+      update () {
+        this.$data.body = this.$refs.body.value
+        this.$store.dispatch('updateBlog', this.$data).then((data) => {
+          this.$router.replace({name: 'blog_detail', params: {id: data.id}})
+        })
+      },
+      commit () {
+        if (this.$route.name === 'blog_edit') {
+          this.update()
+        } else {
+          this.create()
+        }
       }
     },
     data: function () {
       return {
+        id: null,
         body: null,
         body_original: null,
         title: null

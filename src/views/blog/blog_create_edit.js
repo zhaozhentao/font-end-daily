@@ -59,6 +59,18 @@ const actions = {
         reject()
       })
     })
+  },
+  updateBlog (store, data) {
+    return new Promise((resolve, reject) => {
+      axios.put('/api/blogs/' + data.id, {
+        title: data.title,
+        body: data.body
+      }).then(function (response) {
+        resolve(response.data)
+      }).catch(function () {
+        reject()
+      })
+    })
   }
 }
 
