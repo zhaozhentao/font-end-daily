@@ -9,12 +9,14 @@ const mutations = {}
 
 const actions = {
   initEditor (store, data) {
+    var autosave = data == null
+    var uniqueId = 'blog_content' + (data == null ? '' : data.id)
     var simplemde = new SimpleMDE({
       spellChecker: false,
       autosave: {
-        enabled: true,
+        enabled: autosave,
         delay: 1000,
-        unique_id: 1
+        unique_id: uniqueId
       },
       forceSync: true
     })

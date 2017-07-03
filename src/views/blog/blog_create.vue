@@ -22,7 +22,16 @@
 <script>
   export default {
     mounted () {
-      this.$store.dispatch('initEditor')
+      if (this.$route.name === 'blog_edit') {
+        this.$store.dispatch('getBlog', this.$route.params.id).then((data) => {
+          this.$data.body = data.body_original
+          this.$refs.body.value = data.body_original
+          this.$data.title = data.title
+          this.$store.dispatch('initEditor', data)
+        })
+      } else {
+        this.$store.dispatch('initEditor')
+      }
     },
     methods: {
       create () {
@@ -35,6 +44,7 @@
     data: function () {
       return {
         body: null,
+        body_original: null,
         title: null
       }
     }

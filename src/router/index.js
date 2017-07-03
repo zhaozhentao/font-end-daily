@@ -31,6 +31,11 @@ export default new Router({
       path: '/blogs/:id',
       component: App.components.Blog,
       name: 'blog_detail'
+    },
+    {
+      path: '/blog/:id/edit',
+      component: App.components.BlogCreate,
+      name: 'blog_edit'
     }
   ]
 })

@@ -24,9 +24,10 @@
           <i class="fa fa-trash-o"></i>
         </a>
 
-        <a data-content="" class="admin  popover-with-html no-pjax">
+        <router-link
+          :to="{ name: 'blog_edit', params: { id: $route.params.id }}" class="admin popover-with-html" data-content="编辑">
           <i class="fa fa-pencil-square-o"></i>
-        </a>
+        </router-link>
 
         <a href="javascript:void(0);" class="admin popover-with-html" data-toggle="modal"
            data-target="#exampleModal" data-content="帖子附言，添加附言后所有参与讨论的用户都能收到消息提醒，包括点赞和评论的用户">
