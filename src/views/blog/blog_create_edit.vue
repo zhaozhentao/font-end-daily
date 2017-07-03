@@ -20,16 +20,33 @@
 </template>
 
 <script>
+  import store from '../../store/store'
+
+  var blog
   export default {
+    beforeRouteEnter (to, from, next) {
+      if (to.name === 'blog_edit') {
+        store.dispatch('getBlog', to.params.id).then((data) => {
+          blog = data
+          next(vm => {
+            vm.id = data.id
+            vm.body = data.body_original
+            vm.body_original = data.body_original
+            vm.title = data.title
+          })
+        })
+      } else {
+        next()
+      }
+    },
     mounted () {
       if (this.$route.name === 'blog_edit') {
-        this.$store.dispatch('getBlog', this.$route.params.id).then((data) => {
-          this.$data.id = data.id
-          this.$data.body = data.body_original
-          this.$refs.body.value = data.body_original
-          this.$data.title = data.title
-          this.$store.dispatch('initEditor', data)
-        })
+        this.$data.id = blog.id
+        this.$data.body = blog.body
+        this.$data.body_original = blog.body_original
+        this.$data.title = blog.title
+        this.$refs.body.value = blog.body_original
+        this.$store.dispatch('initEditor', this.$data)
       } else {
         this.$store.dispatch('initEditor')
       }

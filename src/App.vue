@@ -42,7 +42,7 @@
         console.log(that.$data.loading)
       })
       loadingBus.$on('finish_loading', () => {
-        that.$data.loading--
+        that.$data.loading = --that.$data.loading < 0 ? 0 : that.$data.loading
         console.log(that.$data.loading)
       })
     },
