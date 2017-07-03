@@ -1,7 +1,7 @@
 <template>
   <div id="app" style="overflow-x: hidden">
     <nav-bar style="margin-bottom: 0px;"></nav-bar>
-    <md-progress v-show="$store.state.status.loading" class="md-warn" md-indeterminate style="float: left"/>
+    <md-progress v-show="loading > 0" class="md-warn" md-indeterminate style="float: left"/>
     <div class="container main-container" style="margin-top: 20px;">
       <router-view></router-view>
     </div>
@@ -19,6 +19,7 @@
   import BlogCreate from './views/blog/blog_create_edit.vue'
   import Blog from './views/blog/blog.vue'
   import bus from './bus/eventbus'
+  import loadingBus from './bus/loadingbus'
 
   export default {
     name: 'app',
@@ -36,10 +37,19 @@
         that.$data.toastMessage = text
         this.$refs.snackbar.open()
       })
+      loadingBus.$on('loading', () => {
+        that.$data.loading++
+        console.log(that.$data.loading)
+      })
+      loadingBus.$on('finish_loading', () => {
+        that.$data.loading--
+        console.log(that.$data.loading)
+      })
     },
     data () {
       return {
-        toastMessage: null
+        toastMessage: null,
+        loading: 0
       }
     }
   }
