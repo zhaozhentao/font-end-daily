@@ -1,5 +1,6 @@
 import axios from 'axios'
 import loadingBus from '../../bus/loadingbus'
+import eventBus from '../../bus/eventbus'
 
 const state = {
   count: 0
@@ -17,6 +18,7 @@ const actions = {
       }).catch(function () {
         reject()
         loadingBus.$emit('finish_loading')
+        eventBus.$emit('toast', '加载失败')
       })
     })
   }
