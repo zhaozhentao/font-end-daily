@@ -35,6 +35,13 @@ Vue.filter('time', function (value) {
   return y + '/' + format(m) + '/' + format(d)
 })
 
+router.beforeEach((to, from, next) => {
+  next()
+})
+
+router.afterEach(function () {
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
