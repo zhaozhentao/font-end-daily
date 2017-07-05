@@ -45,7 +45,7 @@
             </div>
           </div>
 
-          <blog-operate></blog-operate>
+          <blog-operate v-if="user_id == $store.state.login.user_id"></blog-operate>
         </div>
       </div>
     </div>
@@ -65,6 +65,7 @@
     beforeRouteEnter (to, from, next) {
       store.dispatch('getBlog', to.params.id).then((data) => {
         next(vm => {
+          vm.user_id = data.user_id
           vm.title = data.title
           vm.body = data.body
           vm.is_excellent = data.is_excellent
@@ -82,6 +83,7 @@
     },
     data () {
       return {
+        user_id: null,
         title: null,
         body: null,
         is_excellent: null,

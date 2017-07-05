@@ -31,6 +31,7 @@
       logout: function () {
         delCookie('token')
         this.$store.state.login.user = null
+        this.$store.state.login.user_id = null
       }
     }
   }

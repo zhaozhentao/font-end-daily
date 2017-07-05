@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const state = {
   time: 0,
-  user: null
+  user: null,
+  user_id: null
 }
 
 const mutations = {
@@ -11,6 +12,7 @@ const mutations = {
   },
   user (state, data) {
     state.user = data.data
+    state.user_id = state.user.id
   }
 }
 
