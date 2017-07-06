@@ -12,6 +12,12 @@ var VueMaterial = require('vue-material')
 Vue.config.productionTip = false
 
 Vue.use(VueMaterial)
+Vue.material.registerTheme('default', {
+  primary: 'white',
+  accent: 'red',
+  warn: 'red',
+  background: 'red'
+})
 Vue.use(VeeValidate, {
   locale: 'zh_CN'
 })

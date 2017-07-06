@@ -3,24 +3,23 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default"
            style="position: relative;overflow: hidden; box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);">
-        <div class="panel-heading">
-          <div class="home-nav-container">
-            <a href="" class="home-nav">Blog</a>
-            <a href="" class="home-nav">About Me</a>
-          </div>
-        </div>
-        <div class="panel-body">
-          <ul class="home-content-item-container" style="margin-bottom: 0px;">
-            <li class="home-content-item" v-for="blog in $store.state.home.blogs">
-              <router-link :to="{ name: 'blog_detail', params: { id: blog.id }}" class="home-content-title">
-                {{ blog.title }}
-              </router-link>
-              <small class="home-content-time">{{ blog.created_at | time }}</small>
-            </li>
-          </ul>
-          <div style="float: right">
-          </div>
-        </div>
+        <md-tabs>
+          <md-tab id="blogs" md-label="日志">
+            <ul class="home-content-item-container" style="margin-bottom: 0px;">
+              <li class="home-content-item" v-for="blog in $store.state.home.blogs">
+                <router-link :to="{ name: 'blog_detail', params: { id: blog.id }}" class="home-content-title">
+                  {{ blog.title }}
+                </router-link>
+                <small class="home-content-time">{{ blog.created_at | time }}</small>
+              </li>
+            </ul>
+          </md-tab>
+
+          <md-tab id="tobuy" md-label="To Buy">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
+        </md-tabs>
       </div>
     </div>
   </div>
@@ -105,7 +104,8 @@
   }
 
   .home-content-title {
-    font-size: 18px;
+    font-size: 16px;
+    color: rgb(243, 108, 96) !important;
   }
 
   .home-content-time {
