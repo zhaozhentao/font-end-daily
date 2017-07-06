@@ -115,7 +115,7 @@
   }
 
   .to-buy-cards {
-    margin-top: 16px;
+    margin-bottom: 16px;
     text-align: left;
   }
 
