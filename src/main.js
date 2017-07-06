@@ -16,7 +16,7 @@ Vue.material.registerTheme('default', {
   primary: 'white',
   accent: 'red',
   warn: 'red',
-  background: 'red'
+  background: 'white'
 })
 Vue.use(VeeValidate, {
   locale: 'zh_CN'
