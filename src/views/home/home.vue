@@ -104,7 +104,7 @@
   }
 
   .home-content-title {
-    font-size: 16px;
+    font-size: 17px;
     color: rgb(243, 108, 96) !important;
   }
 
