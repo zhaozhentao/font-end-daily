@@ -16,28 +16,33 @@
           </md-tab>
 
           <md-tab id="tobuy" md-label="To Buy">
-            <md-card>
-              <md-card-media>
-                <img src="https://img.alicdn.com/bao/uploaded/i3/6000000001447/TB2Uwdbkw0kpuFjSspdXXX4YXXa_!!0-fleamarket.jpg_728x728.jpg" alt="People">
-              </md-card-media>
+            <div style="text-align: center">
+              <md-card class="to-buy-cards">
+                <md-card-media>
+                  <img
+                    src="https://img.alicdn.com/bao/uploaded/i3/6000000001447/TB2Uwdbkw0kpuFjSspdXXX4YXXa_!!0-fleamarket.jpg_728x728.jpg"
+                    alt="People">
+                </md-card-media>
 
-              <md-card-header>
-                <div class="md-title">Filco air</div>
-                <div class="md-subhead">给我来一支</div>
-              </md-card-header>
-            </md-card>
+                <md-card-header style="vertical-align: top;">
+                  <div class="md-title">Filco minila air</div>
+                  <div class="md-subhead">来一支</div>
+                </md-card-header>
+              </md-card>
 
-            <br/>
+              <md-card class="to-buy-cards">
+                <md-card-media>
+                  <img
+                    src="http://am.zdmimg.com/201602/05/56b479f2526a2.jpg_e600.jpg"
+                    alt="People">
+                </md-card-media>
 
-            <md-card>
-              <md-card-media>
-                <img src="http://s.dgtle.com/forum/201603/18/154853sd05cxppcxdxw5cw.jpg" alt="People">
-              </md-card-media>
-
-              <md-card-content>
-                filco air
-              </md-card-content>
-            </md-card>
+                <md-card-header style="vertical-align: top;">
+                  <div class="md-title">Filco minila air</div>
+                  <div class="md-subhead">来一支</div>
+                </md-card-header>
+              </md-card>
+            </div>
           </md-tab>
         </md-tabs>
       </div>
@@ -100,6 +105,18 @@
       float: right;
       margin-top: 6px;
     }
+
+    .to-buy-cards {
+      width: 46%;
+      vertical-align: top;
+      display: inline-block;
+      margin-left: 16px;
+    }
+  }
+
+  .to-buy-cards {
+    margin-top: 16px;
+    text-align: left;
   }
 
   @media only screen and (max-device-width: 480px) and (min-device-width: 120px) {
