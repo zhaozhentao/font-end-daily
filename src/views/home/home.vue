@@ -1,8 +1,8 @@
 <template>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-default"
-           style="position: relative;overflow: hidden; box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);">
+      <div class="panel"
+           style="position: relative;overflow: hidden;">
         <md-tabs>
           <md-tab id="blogs" md-label="日志">
             <ul class="home-content-item-container" style="margin-bottom: 0px;">
