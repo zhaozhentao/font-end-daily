@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-8 col-md-offset-2 topics-show main-col">
-    <div class="topic panel panel-default">
+    <div class="topic panel">
       <div class="infos panel-heading">
         <h1 class="panel-title blog-title">{{ title }}</h1>
       </div>

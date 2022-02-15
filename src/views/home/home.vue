@@ -17,7 +17,7 @@
 
           <md-tab id="tobuy" md-label="To Buy">
             <div style="text-align: center">
-              <md-card class="to-buy-cards">
+              <md-card v-for="i in 4" class="to-buy-cards">
                 <md-card-media>
                   <img
                     src="https://img.alicdn.com/bao/uploaded/i3/6000000001447/TB2Uwdbkw0kpuFjSspdXXX4YXXa_!!0-fleamarket.jpg_728x728.jpg"
@@ -66,21 +66,6 @@
 </script>
 
 <style scoped>
-  .home-nav-container {
-    text-align: center;
-    height: 54px;
-    padding-top: 20px;
-  }
-
-  .home-nav:hover {
-    text-decoration: none;
-  }
-
-  .home-nav {
-    padding: 10px;
-    font-size: 17px;
-  }
-
   a:hover, a:focus {
     color: #22ddde;
     text-decoration: underline;

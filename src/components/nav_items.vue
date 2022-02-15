@@ -11,6 +11,11 @@
       </router-link>
     </li>
     <li class="menu-item">
+      <router-link :to="'/goods/create'">
+        <i class="fa fa-shopping-cart text-md nav-menu-icon"></i> To Buy
+      </router-link>
+    </li>
+    <li class="menu-item">
       <a @click="logout()"
          data-lang-loginout="你确定要退出吗">
         <i class="fa fa-sign-out text-md nav-menu-icon"></i> 退出

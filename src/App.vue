@@ -17,6 +17,7 @@
   import Signup from './views/signup/signup.vue'
   import NavBar from './components/navbar'
   import BlogCreate from './views/blog/blog_create_edit.vue'
+  import GoodCreate from './views/good/good_create_edit.vue'
   import Blog from './views/blog/blog.vue'
   import bus from './bus/eventbus'
   import loadingBus from './bus/loadingbus'
@@ -29,7 +30,8 @@
       Home,
       Signup,
       BlogCreate,
-      Blog
+      Blog,
+      GoodCreate
     },
     mounted () {
       var that = this

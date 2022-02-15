@@ -36,6 +36,11 @@ export default new Router({
       path: '/blog/:id/edit',
       component: App.components.BlogCreate,
       name: 'blog_edit'
+    },
+    {
+      path: '/goods/create',
+      component: App.components.GoodCreate,
+      name: 'goods_create'
     }
   ]
 })
